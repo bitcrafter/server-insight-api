@@ -1,0 +1,36 @@
+swagger: "2.0"
+info:
+  description: Know more abou your server with this awesome API.
+  version: "1.0.0"
+  title: Server Insight API
+schemes:
+  - "http"
+tags:
+  - name: "info"
+    description: "Basic information about the server"
+paths:
+  /host:
+    get:
+      tags:
+        - "info"
+      summary: "Get Server Information"
+      operationId: "host"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/Host"
+definitions:
+  Host:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "localhost"
+        description: "Hostname from server"
+      ip:
+        type: "string"
+        example: "127.0.0.1"
+        description: "IPv4 from server"
